@@ -176,6 +176,8 @@
 
     h1 {
       font-size: var(--text-6xl);
+      line-height: 1.2;
+      letter-spacing: 2;
     }
 
     h2 {
@@ -213,6 +215,48 @@
     @apply bg-background text-foreground;
     font-family: var(--font-primary);
 
+  }
+
+  /* BUTTON 3D EFFECT */
+
+  .button-3d {
+    --b: 3px;
+    /* border width*/
+    --c: 8px;
+    /* cube depth */
+    --g: calc(var(--c)*0.707);
+    /* 0.707 = cos(45deg) = sin(45deg) */
+
+    transition: 0.5s;
+    border-width: var(--b) calc(var(--c) + var(--b)) calc(var(--c) + var(--b)) var(--b);
+    background: yellow;
+    transform: translate(calc(var(--c)/1), calc(var(--c)/1));
+    clip-path:
+      polygon(calc(100% - var(--c)) 0%, calc(100% - var(--c)) 0%,
+        0% 0%,
+        0% calc(100% - var(--c)), 0% calc(100% - var(--c)),
+        calc(100% - var(--c)) calc(100% - var(--c)),
+        calc(100% - var(--c)) calc(100% - var(--c)));
+  }
+
+  .button-3d:hover {
+    transform: translate(0, 0);
+    clip-path:
+      polygon(100% var(--c), calc(100% - var(--c)) 0%,
+        0% 0%,
+        0% calc(100% - var(--c)), var(--c) 100%,
+        100% 100%,
+        100% 100%);
+  }
+
+  .button-3d:active {
+    transform: translate(calc(var(--c)/1), calc(var(--c)/1));
+    clip-path:
+      polygon(calc(100% - var(--c)) 0%, calc(100% - var(--c)) 0%,
+        0% 0%,
+        0% calc(100% - var(--c)), 0% calc(100% - var(--c)),
+        calc(100% - var(--c)) calc(100% - var(--c)),
+        calc(100% - var(--c)) calc(100% - var(--c)));
   }
 
 }

@@ -141,7 +141,7 @@ const NavigationComponent = ({
     },
   ],
   actions = {
-    button1: { title: "Button 1", url: "#" },
+    button1: { title: "Buy Tickets", url: "#" },
   },
 }: NavigationComponentProps) => {
   return (
@@ -163,7 +163,7 @@ const NavigationComponent = ({
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex gap-2 w-full justify-end">
-          <Button asChild>
+          <Button asChild variant={"cube"}>
             <a href={actions.button1.url}>{actions.button1.title}</a>
           </Button>
         </div>
@@ -219,7 +219,7 @@ const renderMenuItem = (item: MenuItem) => {
       <NavigationMenuItem key={item.title}>
         <NavigationMenuTrigger
         >{item.title}</NavigationMenuTrigger>
-        <NavigationMenuContent className="flex flex-col pt-4 pb-5 px-6">
+        <NavigationMenuContent className="flex flex-col pt-4 pb-5 pl-4 pr-6">
           {item.items.map((subItem) => (
             <NavigationMenuLink asChild key={subItem.title} className="w-max hover:bg-transparent hover:text-white normal-case">
               <SubMenuLink item={subItem} />
