@@ -145,7 +145,7 @@ const NavigationComponent = ({
   },
 }: NavigationComponentProps) => {
   return (
-    <section className="py-10 px-12 justify-between w-full fixed bg-background">
+    <section className="py-10 px-12 justify-between w-full fixed bg-background z-50">
       {/* Desktop Menu */}
       <nav className="hidden justify-between lg:flex w-full">
         <div className="flex justify-start items-center gap-6 w-full">
@@ -162,8 +162,8 @@ const NavigationComponent = ({
             {menu.map((item) => renderMenuItem(item))}
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex gap-2 w-full justify-end">
-          <Button asChild variant={"cube"}>
+        <div className="flex gap-2 w-full justify-end items-center">
+          <Button asChild variant={"default"}>
             <a href={actions.button1.url}>{actions.button1.title}</a>
           </Button>
         </div>
@@ -174,15 +174,16 @@ const NavigationComponent = ({
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href={logo.url} className="flex items-center gap-2">
-            <img src={logo.src} className="max-h-8" alt={logo.alt} />
+            {/* <img src={logo.src} className="max-h-8" alt={logo.alt}/> */}
+            WGIC26
           </a>
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon">
-                <Menu className="size-4" />
+              <Button variant="default" size="icon">
+                <Menu />
               </Button>
             </SheetTrigger>
-            <SheetContent className="overflow-y-auto">
+            <SheetContent className="overflow-y-auto bg-[red] border-none w-full sm:max-w-full">
               <SheetHeader>
                 <SheetTitle>
                   <a href={logo.url} className="flex items-center gap-2">
@@ -199,7 +200,7 @@ const NavigationComponent = ({
                   {menu.map((item) => renderMobileMenuItem(item))}
                 </Accordion>
 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 items-center">
                   <Button asChild>
                     <a href={actions.button1.url}>{actions.button1.title}</a>
                   </Button>

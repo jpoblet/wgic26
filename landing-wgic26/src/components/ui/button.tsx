@@ -1,33 +1,22 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-
 import { cn } from "@/lib/utils"
 
-const buttonVariants = cva(
-  "button-3d inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase transition-all",
-  // "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+const buttonBase = cva(
+  "relative z-10 inline-flex items-center justify-center gap-2 font-semibold uppercase transition-all duration-500",
   {
     variants: {
       variant: {
-        default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-        outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
-        cube: "text-black bg-accent border-black",
+        default: "bg-accent text-black shadow-[inset_0px_0px_0px_2px_black]",
+        secondary: "bg-white text-black shadow-[inset_0px_0px_0px_2px_black]",
+        inverse: "bg-black text-white shadow-[inset_0px_0px_0px_2px_white]",
       },
       size: {
-        default: "h-10 px-4 py-5 has-[>svg]:px-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-10",
+        default: "h-10 text-xs px-4 has-[>svg]:px-3",
+        sm: "h-8 text-xs px-3 has-[>svg]:px-2.5",
+        lg: "h-12 text-sm px-5 has-[>svg]:px-4",
+        icon: "size-9",
       },
     },
     defaultVariants: {
@@ -44,18 +33,44 @@ function Button({
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
+  VariantProps<typeof buttonBase> & {
     asChild?: boolean
   }) {
   const Comp = asChild ? Slot : "button"
 
+  const isInverse = variant === "inverse"
+  const pseudoColor = isInverse ? "text-white" : "text-black"
+
   return (
-    <Comp
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
+    <div
+      className={cn(
+        "relative group inline-block transition-transform duration-500 self-center origin-bottom-right",
+        "hover:-translate-x-1 hover:-translate-y-1 hover:origin-bottom-right",
+        "active:translate-x-1 active:translate-y-1 hover:origin-bottom-right"
+      )}
+    >
+
+      {/* Pseudo elements for 3D effect */}
+      <span
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute inset-0 z-0",
+          "before:absolute before:content-[''] before:w-2 before:h-full before:skew-y-[45deg] before:bg-current before:-right-2 before:-bottom-1 before:transition-all before:duration-500",
+          "after:absolute after:content-[''] after:h-2 after:w-full after:skew-x-[45deg] after:bg-current after:left-1 after:-bottom-2 after:transition-all after:duration-500",
+          "group-hover:before:-right-3 group-hover:before:-bottom-1.5 group-hover:before:w-3 group-hover:origin-bottom-right",
+          "group-hover:after:-bottom-3 group-hover:after:h-3 group-hover:after:left-1.5",
+          "group-active:before:-right-1 group-active:before:-bottom-0.5 group-active:before:w-1 group-active:origin-bottom-right",
+          "group-active:after:-bottom-1 group-active:after:h-1 group-active:after:left-0.5",
+          pseudoColor
+        )}
+      />
+      <Comp
+        data-slot="button"
+        className={cn(buttonBase({ variant, size }), className)}
+        {...props}
+      />
+    </div>
   )
 }
 
-export { Button, buttonVariants }
+export { Button, buttonBase as buttonVariants }

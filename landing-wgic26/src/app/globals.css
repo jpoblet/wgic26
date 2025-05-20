@@ -217,46 +217,29 @@
 
   }
 
-  /* BUTTON 3D EFFECT */
-
-  .button-3d {
-    --b: 3px;
-    /* border width*/
-    --c: 8px;
-    /* cube depth */
-    --g: calc(var(--c)*0.707);
-    /* 0.707 = cos(45deg) = sin(45deg) */
-
-    transition: 0.5s;
-    border-width: var(--b) calc(var(--c) + var(--b)) calc(var(--c) + var(--b)) var(--b);
-    background: yellow;
-    transform: translate(calc(var(--c)/1), calc(var(--c)/1));
-    clip-path:
-      polygon(calc(100% - var(--c)) 0%, calc(100% - var(--c)) 0%,
-        0% 0%,
-        0% calc(100% - var(--c)), 0% calc(100% - var(--c)),
-        calc(100% - var(--c)) calc(100% - var(--c)),
-        calc(100% - var(--c)) calc(100% - var(--c)));
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    gap: 3.5rem;
   }
 
-  .button-3d:hover {
-    transform: translate(0, 0);
-    clip-path:
-      polygon(100% var(--c), calc(100% - var(--c)) 0%,
-        0% 0%,
-        0% calc(100% - var(--c)), var(--c) 100%,
-        100% 100%,
-        100% 100%);
+  /* Medium screens and up (md:) */
+  @media (min-width: 768px) {
+    section {
+      padding: 3rem;
+    }
   }
 
-  .button-3d:active {
-    transform: translate(calc(var(--c)/1), calc(var(--c)/1));
-    clip-path:
-      polygon(calc(100% - var(--c)) 0%, calc(100% - var(--c)) 0%,
-        0% 0%,
-        0% calc(100% - var(--c)), 0% calc(100% - var(--c)),
-        calc(100% - var(--c)) calc(100% - var(--c)),
-        calc(100% - var(--c)) calc(100% - var(--c)));
+  /* Large screens and up (lg:) */
+  @media (min-width: 1024px) {
+    section {
+      flex-direction: row;
+      padding: 4rem;
+      gap: 0;
+    }
   }
+
 
 }
