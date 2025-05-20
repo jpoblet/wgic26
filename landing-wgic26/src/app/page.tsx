@@ -22,64 +22,48 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section>
-          <div className="bg-[url(/img/hero.png)] bg-no-repeat bg-cover bg-center w-full h-[764px] bg-[blue]">
+        <section className="flex flex-col gap-0">
+          <div className="bg-[url(/img/hero.png)] bg-no-repeat bg-cover bg-center w-full h-[700px]"></div>
+          <div id="countdown" className="flex text-4xl bg-cactus text-white w-full h-auto p-8 md:p-32 justify-center">
+            <div className="flex flex-col md:flex-row gap-12 items-start md:items-center md:justify-center">
+              <div className="text-sm text-cement">Starting in:</div>
+              <div className="flex gap-2">532<strong>d</strong></div>
+              <div className="flex gap-2">03<strong>h</strong></div>
+              <div className="flex gap-2">36<strong>m</strong></div>
+              <div className="flex gap-2">40<strong>s</strong></div>
+            </div>
+          </div>
+          <div id="banner" className="bg-cement text-mortar w-full h-[500px] pl-12 pr-14 py-12 flex flex-col justify-between items-end">
+            <div className="flex flex-col gap-3 uppercase text-5xl w-full">
+              <div>Talks</div>
+              <div>Exhibitions</div>
+              <div>Networking</div>
+              <div>Content</div>
+            </div>
+            <img src="/img/wgic26_logo.svg" className="max-h-32" />
           </div>
         </section>
-        <section className="gap-10">
-          <Button variant="default" size="default">
-            Button
-          </Button>
-          <Button variant="default" size="icon">
-            <Menu className="size-6" />
-          </Button>
-          <Button variant="default" size="sm">
-            Button
-          </Button>
-          <Button variant="default" size="lg">
-            Button
-          </Button>
+        <section id="locations" className="flex flex-col gap-6">
+          <div className="text-xs uppercase w-full border-b border-white py-2 font-semibold">Locations</div>
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="bg-cactus text-white w-full xl:w-1/2 h-[500px] px-14 py-12">Box A</div>
+            <div className="bg-sansiviera text-white w-full xl:w-1/2 h-[500px] px-14 py-12">Box B</div>
+          </div>
         </section>
-        <section className="gap-10">
-          <Button variant="secondary" size="default">
-            Button
-          </Button>
-          <Button variant="secondary" size="icon">
-            <Menu className="size-6" />
-          </Button>
-          <Button variant="secondary" size="sm">
-            Button
-          </Button>
-          <Button variant="secondary" size="lg">
-            Button
-          </Button>
-        </section>
-        <section className="">
-          <Button variant="inverse" size="default">
-            Button
-          </Button>
-          <Button variant="inverse" size="icon">
-            <Menu className="size-6" />
-          </Button>
-          <Button variant="inverse" size="sm">
-            Button
-          </Button>
-          <Button variant="inverse" size="lg">
-            Button
-          </Button>
-        </section>
-
-        <section>
-          <h1>Heading 1</h1>
-          <h2>Heading 2</h2>
-          <h3>Heading 3</h3>
-          <h4>Heading 4</h4>
-          <h5>Heading 5</h5>
-          <h6>Body Large</h6>
-          <p>Body sm</p>
+        <section id="banner-img" className="flex flex-col lg:flex-row gap-0">
+          <div className="bg-[url(/img/image.png)] bg-no-repeat bg-cover bg-center w-full xl:w-1/2 h-[500px]"></div>
+          <div className="bg-cement text-mortar w-full xl:w-1/2 h-[500px] pl-10 pr-12 py-10 flex flex-col justify-between items-end">
+            <div className="flex flex-col gap-2 uppercase text-4xl w-full">
+              <div>Talks</div>
+              <div>Exhibitions</div>
+              <div>Networking</div>
+              <div>Content</div>
+            </div>
+            <img src="/img/wgic26_logo.svg" className="max-h-24" />
+          </div>
         </section>
       </main>
-      <footer className="bg-[gray] flex justify-between px-24 py-20 w-full font-medium">
+      <footer className="bg-mortar text-cement flex justify-between px-24 py-20 w-full font-medium">
         <h4 className="font-medium w-1/8">World <strong>Green</strong> Infrastructure Congress 2026 <strong>Barcelona</strong></h4>
         <p>Footer Right</p>
       </footer>

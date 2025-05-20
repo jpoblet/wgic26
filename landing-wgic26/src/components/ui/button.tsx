@@ -8,7 +8,7 @@ const buttonBase = cva(
   {
     variants: {
       variant: {
-        default: "bg-accent text-black shadow-[inset_0px_0px_0px_2px_black]",
+        default: "bg-potus text-black shadow-[inset_0px_0px_0px_2px_black]",
         secondary: "bg-white text-black shadow-[inset_0px_0px_0px_2px_black]",
         inverse: "bg-black text-white shadow-[inset_0px_0px_0px_2px_white]",
       },

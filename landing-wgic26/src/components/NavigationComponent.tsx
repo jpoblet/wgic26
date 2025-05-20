@@ -49,8 +49,8 @@ interface NavigationComponentProps {
 
 const NavigationComponent = ({
   logo = {
-    url: "https://www.shadcnblocks.com",
-    src: "https://shadcnblocks.com/images/block/logos/shadcnblockscom-icon.svg",
+    url: "#",
+    src: "/img/wgic26_logo.svg",
     alt: "logo",
     title: "WGIC26",
   },
@@ -61,27 +61,20 @@ const NavigationComponent = ({
       url: "#",
       items: [
         {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
+          title: "Section A",
+          description: "Get all the answers you need right here",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
         {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
+          title: "Section B",
+          description: "We are here to help you with any questions you have",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
         {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
+          title: "Section C",
+          description: "Check the current status of our services and APIs",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
@@ -92,25 +85,25 @@ const NavigationComponent = ({
       url: "#",
       items: [
         {
-          title: "Help Center",
+          title: "Section A",
           description: "Get all the answers you need right here",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
         {
-          title: "Contact Us",
+          title: "Section B",
           description: "We are here to help you with any questions you have",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
         {
-          title: "Status",
+          title: "Section C",
           description: "Check the current status of our services and APIs",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
         {
-          title: "Terms of Service",
+          title: "Section D",
           description: "Our terms and conditions for using our services",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
@@ -126,13 +119,13 @@ const NavigationComponent = ({
       url: "#",
       items: [
         {
-          title: "Help Center",
+          title: "Section A",
           description: "Get all the answers you need right here",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
         {
-          title: "Contact Us",
+          title: "Section B",
           description: "We are here to help you with any questions you have",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
@@ -145,16 +138,16 @@ const NavigationComponent = ({
   },
 }: NavigationComponentProps) => {
   return (
-    <section className="py-10 px-12 justify-between w-full fixed bg-background z-50">
+    <section className="py-8 px-12 justify-between w-full fixed bg-monstera text-white z-50">
       {/* Desktop Menu */}
       <nav className="hidden justify-between lg:flex w-full">
         <div className="flex justify-start items-center gap-6 w-full">
           {/* Logo */}
           <a href={logo.url} className="flex items-center gap-2">
-            {/* <img src={logo.src} className="max-h-8" alt={logo.alt} /> */}
-            <span className="text-lg">
+            <img src={logo.src} className="max-h-18" alt={logo.alt} />
+            {/* <span className="text-lg">
               {logo.title}
-            </span>
+            </span> */}
           </a>
         </div>
         <NavigationMenu>
@@ -174,8 +167,7 @@ const NavigationComponent = ({
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href={logo.url} className="flex items-center gap-2">
-            {/* <img src={logo.src} className="max-h-8" alt={logo.alt}/> */}
-            WGIC26
+            <img src={logo.src} className="max-h-16" alt={logo.alt} />
           </a>
           <Sheet>
             <SheetTrigger asChild>
@@ -183,12 +175,12 @@ const NavigationComponent = ({
                 <Menu />
               </Button>
             </SheetTrigger>
-            <SheetContent className="overflow-y-auto bg-[red] border-none w-full sm:max-w-full">
+            <SheetContent className="overflow-y-auto bg-cement text-mortar border-none w-full sm:max-w-full">
               <SheetHeader>
                 <SheetTitle>
-                  <a href={logo.url} className="flex items-center gap-2">
-                    <img src={logo.src} className="max-h-8" alt={logo.alt} />
-                  </a>
+                  {/* <a href={logo.url} className="flex items-center gap-2">
+                    <img src={logo.src} className="max-h-16" alt={logo.alt} />
+                  </a> */}
                 </SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-6 p-4">
@@ -267,7 +259,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
 const SubMenuLink = ({ item }: { item: MenuItem }) => {
   return (
     <a
-      className="flex flex-row gap-4 justify-start rounded-none leading-none transition-none outline-none select-none normal-case hover:underline hover:underline-offset-8 hover:decoration-2 hover:decoration-accent"
+      className="flex flex-row gap-4 justify-start rounded-none leading-none transition-none outline-none select-none normal-case hover:underline hover:underline-offset-8 hover:decoration-2 hover:decoration-potus"
       href={item.url}
     >
       <div className="flex gap-2 py-2">
