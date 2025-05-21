@@ -91,8 +91,6 @@
 
   body {
     font-family: var(--font-primary);
-    background: var(--monstera);
-    color: var(--white);
   }
 
   section {

@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, Ticket } from "lucide-react";
 import { AnimatedLogo } from "./AnimatedLogo";
@@ -33,7 +35,7 @@ interface MenuItem {
   items?: MenuItem[];
 }
 
-interface NavigationComponentProps {
+interface NavigationProps {
   logo?: {
     url: string;
     src: string;
@@ -49,7 +51,7 @@ interface NavigationComponentProps {
   };
 }
 
-const NavigationComponent = ({
+const Navigation = ({
   logo = {
     url: "#",
     src: "/img/wgic26_logo.svg",
@@ -59,83 +61,37 @@ const NavigationComponent = ({
   menu = [
     {
       title: "Program",
-      url: "#",
+      url: "/program",
       items: [
-        {
-          title: "Topics",
-          description: "Get all the answers you need right here",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Agenda",
-          description: "We are here to help you with any questions you have",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Activities",
-          description: "Check the current status of our services and APIs",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Awards",
-          description: "Check the current status of our services and APIs",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
+        { title: "Topics", url: "/program/topics", description: "...", icon: <ArrowRight /> },
+        { title: "Agenda", url: "/program/agenda", description: "...", icon: <ArrowRight /> },
+        { title: "Activities", url: "/program/activities", description: "...", icon: <ArrowRight /> },
+        { title: "Awards", url: "/program/awards", description: "...", icon: <ArrowRight /> },
       ],
     },
     {
       title: "About",
-      url: "#",
+      url: "/about",
       items: [
-        {
-          title: "The Congress",
-          description: "Get all the answers you need right here",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "WGI Network",
-          description: "We are here to help you with any questions you have",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Location & Stay",
-          description: "Check the current status of our services and APIs",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
+        { title: "The Congress", url: "/about/congress", description: "...", icon: <ArrowRight /> },
+        { title: "WGI Network", url: "/about/wgi-network", description: "...", icon: <ArrowRight /> },
+        { title: "Location & Stay", url: "/about/location", description: "...", icon: <ArrowRight /> },
       ],
     },
-    { title: "Speakers", url: "#" },
+    { title: "Speakers", url: "/speakers" },
     {
       title: "Exhibitors & Partners",
-      url: "#",
+      url: "/exhibitors-partners",
       items: [
-        {
-          title: "Exhibitors",
-          description: "Get all the answers you need right here",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Partners",
-          description: "We are here to help you with any questions you have",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
+        { title: "Exhibitors", url: "/exhibitors-partners/exhibitors", description: "...", icon: <ArrowRight /> },
+        { title: "Partners", url: "/exhibitors-partners/partners", description: "...", icon: <ArrowRight /> },
       ],
     },
-
   ],
   actions = {
     button: { title: "Tickets", url: "#" },
   },
-}: NavigationComponentProps) => {
+}: NavigationProps) => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrolled, setScrolled] = useState(false);
@@ -280,4 +236,4 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
   );
 };
 
-export { NavigationComponent };
+export { Navigation };
