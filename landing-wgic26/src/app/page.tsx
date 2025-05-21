@@ -1,6 +1,10 @@
+"use client"
+
 import { NavigationComponent } from "@/components/NavigationComponent";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import Countdown from "@/components/Countdown";
+
 
 export default function Home() {
   return (
@@ -24,15 +28,7 @@ export default function Home() {
         </section>
         <section className="flex flex-col gap-0">
           <div className="bg-[url(/img/hero.png)] bg-no-repeat bg-cover bg-center w-full h-[700px]"></div>
-          <div id="countdown" className="flex text-4xl bg-cactus text-white w-full h-auto p-8 md:p-32 justify-center">
-            <div className="flex flex-col md:flex-row gap-12 items-start md:items-center md:justify-center">
-              <div className="text-sm text-cement">Starting in:</div>
-              <div className="flex gap-2">532<strong>d</strong></div>
-              <div className="flex gap-2">03<strong>h</strong></div>
-              <div className="flex gap-2">36<strong>m</strong></div>
-              <div className="flex gap-2">40<strong>s</strong></div>
-            </div>
-          </div>
+          <Countdown />
           <div id="banner" className="bg-cement text-mortar w-full h-[500px] pl-12 pr-14 py-12 flex flex-col justify-between items-end">
             <div className="flex flex-col gap-3 uppercase text-5xl w-full">
               <div>Talks</div>
