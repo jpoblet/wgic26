@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, Ticket } from "lucide-react";
 import { AnimatedLogo } from "./AnimatedLogo";
+import Link from "next/link";
+import Image from "next/image";
+
 
 import {
   Accordion,
@@ -53,7 +56,7 @@ interface NavigationProps {
 
 const Navigation = ({
   logo = {
-    url: "#",
+    url: "/",
     src: "/img/wgic26_logo.svg",
     alt: "logo",
     title: "WGIC26",
@@ -116,9 +119,9 @@ const Navigation = ({
 
         {/* Desktop */}
         <div className="hidden lg:flex justify-between items-center w-full">
-          <a href={logo.url} className="flex items-center gap-2">
+          <Link href={logo.url} className="flex items-center gap-2">
             <AnimatedLogo scrolled={scrolled} visible={showNavbar} />
-          </a>
+          </Link>
           <NavigationMenu>
             <NavigationMenuList className="flex 2xl:gap-12 xl:gap-8 gap-2">
               {menu.map((item) => renderMenuItem(item))}
@@ -131,9 +134,14 @@ const Navigation = ({
 
         {/* Mobile */}
         <div className="flex lg:hidden justify-between w-full items-center">
-          <a href={logo.url} className="flex items-center gap-2">
-            <img src={logo.src} className="max-h-16" alt={logo.alt} />
-          </a>
+          <Link href={logo.url} className="flex items-center gap-2">
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              fill
+              className="max-h-16"
+            />
+          </Link>
           <div className="flex gap-3 sm:gap-2">
             <Button asChild variant={"default"} size="lg" className="hidden sm:flex">
               <a href={actions.button.url}><Ticket />{actions.button.title}</a>

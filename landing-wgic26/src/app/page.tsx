@@ -1,6 +1,8 @@
 "use client"
 
 import Countdown from "@/components/Countdown";
+import Image from "next/image";
+
 
 export default function Home() {
   return (
@@ -30,7 +32,12 @@ export default function Home() {
             <div>Networking</div>
             <div>Content</div>
           </div>
-          <img src="/img/wgic26_logo.svg" className="max-h-32" />
+          <Image
+            src="/img/wgic26_logo.svg"
+            alt={"WGIC26_logo"}
+            width={200}
+            height={80}
+            className="max-h-32" />
         </div>
       </section>
       <section id="locations" className="flex flex-col gap-6">
@@ -51,7 +58,12 @@ export default function Home() {
             <div>Networking</div>
             <div>Content</div>
           </div>
-          <img src="/img/wgic26_logo.svg" className="max-h-24" />
+          <Image
+            src="/img/wgic26_logo.svg"
+            alt={"WGIC26_logo"}
+            width={200}
+            height={80}
+            className="max-h-24" />
         </div>
       </section>
     </main>

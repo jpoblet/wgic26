@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react";
+import Image2 from "next/image";
 
 interface AnimatedLogoProps {
     scrolled: boolean;
@@ -21,10 +22,11 @@ const AnimatedLogo = ({ scrolled, visible }: AnimatedLogoProps) => {
 
     useEffect(() => {
         logoFrames.forEach((src) => {
-            const img = new Image();
+            const img = document.createElement("img");
             img.src = src;
         });
     }, []);
+
 
     const startAnimation = () => {
         if (intervalRef.current) return;
@@ -53,12 +55,13 @@ const AnimatedLogo = ({ scrolled, visible }: AnimatedLogoProps) => {
             onMouseEnter={startAnimation}
             onMouseLeave={stopAnimation}
         >
-            <img
+            <Image2
                 key={logoFrames[currentFrame]}
                 src={logoFrames[currentFrame]}
-                alt="Animated Logo"
-                className="absolute inset-0 w-full h-full object-contain"
-            />
+                alt="WGIC26 Logo"
+                fill
+                className="absolute inset-0 w-full h-full object-contain" />
+
         </div>
     );
 };
