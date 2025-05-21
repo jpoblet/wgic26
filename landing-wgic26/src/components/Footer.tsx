@@ -1,4 +1,4 @@
-import { Castle, School } from "lucide-react";
+import { School } from "lucide-react";
 import React from "react";
 
 const Footer = () => {
