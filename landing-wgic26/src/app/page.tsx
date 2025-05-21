@@ -4,6 +4,7 @@ import { NavigationComponent } from "@/components/NavigationComponent";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import Countdown from "@/components/Countdown";
+import { Footer } from "@/components/Footer";
 
 
 export default function Home() {
@@ -12,15 +13,15 @@ export default function Home() {
       <NavigationComponent />
       <main className="mt-32">
         <section className="lg:pt-24">
-          <div className="uppercase text-4xl pr-8 sm:text-5xl w-full md:text-6xl lg:text-5xl lg:w-3/5 xl:text-6xl leading-tight tracking-tight">
+          <div className="uppercase text-3xl xs:text-4xl pr-8 sm:text-5xl w-full md:text-6xl lg:text-5xl lg:w-3/5 xl:text-6xl leading-tight tracking-tight">
             World <strong>Green</strong> Infrastructure Congress 2026 <strong>Barcelona</strong>
           </div>
           <div className="flex flex-col h-auto content-between gap-10 w-full lg:w-2/5">
-            <div className="flex w-full h-full justify-between pt-7 border-t-1 border-white">
+            <div className="flex w-full h-full justify-between pt-7 border-t-1 border-white/50">
               <h6 className="flex w-full h-full">27-28 OCT 2026</h6>
               <h6 className="flex w-full h-full">CCIB - Parc del Forum, Barcelona (Spain)</h6>
             </div>
-            <div className="flex w-full h-full justify-between pt-7 border-t-1 border-white">
+            <div className="flex w-full h-full justify-between pt-7 border-t-1 border-white/50">
               <h6 className="flex w-full h-full">30 OCT 2026</h6>
               <h6 className="flex w-full h-full">Auditori, Universitat de Lleida, Lleida (Spain)</h6>
             </div>
@@ -40,10 +41,12 @@ export default function Home() {
           </div>
         </section>
         <section id="locations" className="flex flex-col gap-6">
-          <div className="text-xs uppercase w-full border-b border-white py-2 font-semibold">Locations</div>
+          <div className="text-xs uppercase w-full border-b border-white/50 py-2 tracking-wider">Locations</div>
           <div className="flex flex-col lg:flex-row gap-8">
-            <div className="bg-cactus text-white w-full xl:w-1/2 h-[500px] px-14 py-12">Box A</div>
-            <div className="bg-sansiviera text-white w-full xl:w-1/2 h-[500px] px-14 py-12">Box B</div>
+            <div className="bg-cactus text-white aspect-square flex-1 px-12 py-10">Barcelona</div>
+            <div className="bg-sansiviera text-white aspect-square flex-1 px-12 py-10">Lleida</div>
+            <div className="bg-transparent text-white aspect-square flex-1 px-12 py-10 border-2 border-sansiviera">Online</div>
+
           </div>
         </section>
         <section id="banner-img" className="flex flex-col lg:flex-row gap-0">
@@ -59,10 +62,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="bg-mortar text-cement flex justify-between px-24 py-20 w-full font-medium">
-        <h4 className="font-medium w-1/8">World <strong>Green</strong> Infrastructure Congress 2026 <strong>Barcelona</strong></h4>
-        <p>Footer Right</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, Menu, Ticket } from "lucide-react";
 import { AnimatedLogo } from "./AnimatedLogo";
 
 import {
@@ -42,7 +42,7 @@ interface NavigationComponentProps {
   };
   menu?: MenuItem[];
   actions?: {
-    button1: {
+    button: {
       title: string;
       url: string;
     };
@@ -57,86 +57,83 @@ const NavigationComponent = ({
     title: "WGIC26",
   },
   menu = [
-    { title: "Program 2026", url: "#" },
+    {
+      title: "Program",
+      url: "#",
+      items: [
+        {
+          title: "Topics",
+          description: "Get all the answers you need right here",
+          icon: <ArrowRight className="size-4 shrink-0" />,
+          url: "#",
+        },
+        {
+          title: "Agenda",
+          description: "We are here to help you with any questions you have",
+          icon: <ArrowRight className="size-4 shrink-0" />,
+          url: "#",
+        },
+        {
+          title: "Activities",
+          description: "Check the current status of our services and APIs",
+          icon: <ArrowRight className="size-4 shrink-0" />,
+          url: "#",
+        },
+        {
+          title: "Awards",
+          description: "Check the current status of our services and APIs",
+          icon: <ArrowRight className="size-4 shrink-0" />,
+          url: "#",
+        },
+      ],
+    },
     {
       title: "About",
       url: "#",
       items: [
         {
-          title: "Section A",
+          title: "The Congress",
           description: "Get all the answers you need right here",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
         {
-          title: "Section B",
+          title: "WGI Network",
           description: "We are here to help you with any questions you have",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
         {
-          title: "Section C",
+          title: "Location & Stay",
           description: "Check the current status of our services and APIs",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
       ],
     },
+    { title: "Speakers", url: "#" },
     {
-      title: "Location & Stay",
+      title: "Exhibitors & Partners",
       url: "#",
       items: [
         {
-          title: "Section A",
+          title: "Exhibitors",
           description: "Get all the answers you need right here",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
         {
-          title: "Section B",
-          description: "We are here to help you with any questions you have",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Section C",
-          description: "Check the current status of our services and APIs",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Section D",
-          description: "Our terms and conditions for using our services",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Speakers",
-      url: "#",
-    },
-    {
-      title: "Submissions",
-      url: "#",
-      items: [
-        {
-          title: "Section A",
-          description: "Get all the answers you need right here",
-          icon: <ArrowRight className="size-4 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Section B",
+          title: "Partners",
           description: "We are here to help you with any questions you have",
           icon: <ArrowRight className="size-4 shrink-0" />,
           url: "#",
         },
       ],
     },
+
   ],
   actions = {
-    button1: { title: "Buy Tickets", url: "#" },
+    button: { title: "Tickets", url: "#" },
   },
 }: NavigationComponentProps) => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -157,23 +154,22 @@ const NavigationComponent = ({
   }, [lastScrollY]);
 
   return (
-    <div className="fixed pl-8 pr-8 pt-6 top-0 left-0 w-full z-50 transition-all duration-350 ease-in-out transform">
-      <nav className={`w-full px-8 py-0 transition-all duration-350 ease-in-out transform border-0 border-white/0 ${showNavbar ? "translate-y-0" : "-translate-y-[160%]"
-        } ${scrolled ? "bg-cactus/50 backdrop-blur-xl pl-8 pr-12 py-2 rounded-2xl border-1 border-white/8" : "bg-transparent"}`}>
+    <div className="fixed px-0 lg:px-8 lg:pt-3 lg:top-0 lg:left-0 w-full z-50 transition-all duration-350 ease-in-out transform">
+      <nav className={`w-full px-8 py-6 transition-all duration-350 ease-in-out transform border-0 border-white/0 ${showNavbar ? "translate-y-0" : "-translate-y-[160%]"
+        } ${scrolled ? "bg-cactus/50 backdrop-blur-xl pl-8 lg:pr-12 lg:py-2 py-8 lg:rounded-2xl border-b-1 lg:border-1 border-white/8" : "bg-transparent"}`}>
 
         {/* Desktop */}
         <div className="hidden lg:flex justify-between items-center w-full">
           <a href={logo.url} className="flex items-center gap-2">
             <AnimatedLogo scrolled={scrolled} visible={showNavbar} />
-            {/* <img src={logo.src} className={`transition-all duration-350 ${scrolled ? "max-h-15" : "max-h-18"}`} alt={logo.alt} /> */}
           </a>
           <NavigationMenu>
-            <NavigationMenuList className="flex 2xl:gap-8 xl:gap-2">
+            <NavigationMenuList className="flex 2xl:gap-12 xl:gap-8 gap-2">
               {menu.map((item) => renderMenuItem(item))}
             </NavigationMenuList>
           </NavigationMenu>
           <Button asChild variant={"default"}>
-            <a href={actions.button1.url}>{actions.button1.title}</a>
+            <a href={actions.button.url}><Ticket />{actions.button.title}</a>
           </Button>
         </div>
 
@@ -182,32 +178,40 @@ const NavigationComponent = ({
           <a href={logo.url} className="flex items-center gap-2">
             <img src={logo.src} className="max-h-16" alt={logo.alt} />
           </a>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="default" size="icon">
-                <Menu />
-              </Button>
-            </SheetTrigger>
-            <SheetContent className="overflow-y-auto bg-cement text-mortar border-none w-full sm:max-w-full">
-              <SheetHeader>
-                <SheetTitle />
-              </SheetHeader>
-              <div className="flex flex-col gap-6 p-4">
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="flex w-full flex-col gap-4"
-                >
-                  {menu.map((item) => renderMobileMenuItem(item))}
-                </Accordion>
-                <div className="flex flex-col gap-3 items-center">
-                  <Button asChild>
-                    <a href={actions.button1.url}>{actions.button1.title}</a>
-                  </Button>
+          <div className="flex gap-3 sm:gap-2">
+            <Button asChild variant={"default"} size="lg" className="hidden sm:flex">
+              <a href={actions.button.url}><Ticket />{actions.button.title}</a>
+            </Button>
+            <Button className="sm:hidden" variant="default" size="icon">
+              <Ticket />
+            </Button>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="secondary" size="icon">
+                  <Menu />
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="overflow-y-auto bg-cement text-mortar border-none w-full sm:max-w-full">
+                <SheetHeader>
+                  <SheetTitle />
+                </SheetHeader>
+                <div className="flex flex-col gap-6 p-4">
+                  <Accordion
+                    type="single"
+                    collapsible
+                    className="flex w-full flex-col gap-4"
+                  >
+                    {menu.map((item) => renderMobileMenuItem(item))}
+                  </Accordion>
+                  <div className="flex flex-col gap-3 items-center">
+                    <Button asChild size={"lg"}>
+                      <a href={actions.button.url}><Ticket />{actions.button.title}</a>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </nav>
     </div>
@@ -219,13 +223,12 @@ const renderMenuItem = (item: MenuItem) => {
     return (
       <NavigationMenuItem key={item.title}>
         <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
-        <NavigationMenuContent className="flex flex-col pt-4 pb-5 pl-4 pr-6">
+        <NavigationMenuContent className="flex flex-col pt-4 pb-5 pl-6 pr-6 bg-black absolute whitespace-nowrap min-w-min gap-2">
           {item.items.map((subItem) => (
             <NavigationMenuLink
               asChild
               key={subItem.title}
-              className="w-max hover:bg-transparent hover:text-white normal-case"
-            >
+              className="w-max hover:bg-transparent hover:text-white normal-case">
               <SubMenuLink item={subItem} />
             </NavigationMenuLink>
           ))}

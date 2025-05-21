@@ -30,7 +30,7 @@ const Countdown = () => {
     return (
         <div
             id="countdown"
-            className="flex text-4xl bg-cactus text-white w-full h-auto p-8 md:p-32 justify-center"
+            className="flex text-4xl bg-cactus text-white w-full h-auto py-24 md:py-32 justify-center"
         >
             <div className="flex flex-col md:flex-row gap-12 items-start md:items-center md:justify-center">
                 <div className="text-sm text-cement">Starting in:</div>
