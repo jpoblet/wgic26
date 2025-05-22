@@ -6,6 +6,7 @@ const Topics = () => {
             <PageHeader
                 title="Topics"
                 description="Find here the main topics that the congress will focus on."
+                section="program"
             />
             <section className="w-full justify-start text-xs">
                 This is the rest of the page

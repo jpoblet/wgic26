@@ -23,6 +23,7 @@
   --potus: oklch(0.85 0.2034 143.81);
   --mortar: oklch(0.48 0.0162 276.77);
   --cement: oklch(0.9298 0.0072 235.87);
+  --lagoon: oklch(0.75 0.173 219.4);
   --white: oklch(1 0 0);
   --black: oklch(0 0 0);
 }
@@ -35,6 +36,7 @@
   --color-potus: var(--potus);
   --color-mortar: var(--mortar);
   --color-cement: var(--cement);
+  --color-lagoon: var(--lagoon);
   --color-white: var(--white);
   --color-black: var(--black);
 }

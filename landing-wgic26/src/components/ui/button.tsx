@@ -11,6 +11,7 @@ const buttonBase = cva(
         default: "bg-potus text-black shadow-[inset_0px_0px_0px_2px_black]",
         secondary: "bg-white text-black shadow-[inset_0px_0px_0px_2px_black]",
         inverse: "bg-black text-white shadow-[inset_0px_0px_0px_2px_white]",
+        blue: "bg-lagoon text-black shadow-[inset_0px_0px_0px_2px_black]",
       },
       size: {
         default: "h-10 text-xs px-4 has-[>svg]:px-3",
