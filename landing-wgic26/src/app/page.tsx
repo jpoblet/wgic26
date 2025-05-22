@@ -26,7 +26,7 @@ export default function Home() {
         <div className="bg-[url(/img/hero.png)] bg-no-repeat bg-cover bg-center w-full h-[700px]"></div>
         <Countdown />
         <div id="banner" className="bg-cement text-mortar w-full h-[500px] pl-12 pr-14 py-12 flex flex-col justify-between items-end">
-          <div className="flex flex-col gap-3 uppercase text-5xl w-full">
+          <div className="flex flex-col gap-3 uppercase text-3xl md:text-5xl w-full">
             <div>Talks</div>
             <div>Exhibitions</div>
             <div>Networking</div>
@@ -52,7 +52,7 @@ export default function Home() {
       <section id="banner-img" className="flex flex-col lg:flex-row gap-0">
         <div className="bg-[url(/img/image.png)] bg-no-repeat bg-cover bg-center w-full xl:w-1/2 h-[500px]"></div>
         <div className="bg-cement text-mortar w-full xl:w-1/2 h-[500px] pl-10 pr-12 py-10 flex flex-col justify-between items-end">
-          <div className="flex flex-col gap-2 uppercase text-4xl w-full">
+          <div className="flex flex-col gap-2 uppercase text-3xl md:text-4xl w-full">
             <div>Talks</div>
             <div>Exhibitions</div>
             <div>Networking</div>

@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className="bg-monstera text-white font-regular">
         <Navigation />
-        <main className="min-h-screen mt-32">{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

@@ -113,7 +113,7 @@ const Navigation = ({
   }, [lastScrollY]);
 
   return (
-    <div className="fixed px-0 lg:px-8 lg:pt-3 lg:top-0 lg:left-0 w-full z-50 transition-all duration-350 ease-in-out transform">
+    <div className="fixed px-0 lg:px-8 lg:pt-3 top-0 lg:left-0 w-full z-50 transition-all duration-350 ease-in-out transform">
       <nav className={`w-full px-8 py-6 transition-all duration-350 ease-in-out transform border-0 border-white/0 ${showNavbar ? "translate-y-0" : "-translate-y-[160%]"
         } ${scrolled ? "bg-cactus/50 backdrop-blur-xl pl-8 lg:pr-12 lg:py-2 py-8 lg:rounded-2xl border-b-1 lg:border-1 border-white/8" : "bg-transparent"}`}>
 
@@ -138,7 +138,8 @@ const Navigation = ({
             <Image
               src={logo.src}
               alt={logo.alt}
-              fill
+              height={64}
+              width={108}
               className="max-h-16"
             />
           </Link>
