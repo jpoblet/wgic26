@@ -25,8 +25,6 @@ import {
 import {
   Sheet,
   SheetContent,
-  // SheetHeader,
-  // SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
@@ -128,7 +126,7 @@ const Navigation = ({
             </NavigationMenuList>
           </NavigationMenu>
           <Button asChild variant={"default"}>
-            <a href={actions.button.url}><Ticket />{actions.button.title}</a>
+            <a href={actions.button.url}><Ticket size={20} />{actions.button.title}</a>
           </Button>
         </div>
 
@@ -145,7 +143,7 @@ const Navigation = ({
           </Link>
           <div className="flex gap-3 sm:gap-2">
             <Button asChild variant={"default"} size="lg" className="hidden sm:flex">
-              <a href={actions.button.url}><Ticket />{actions.button.title}</a>
+              <a href={actions.button.url}><Ticket size={24} />{actions.button.title}</a>
             </Button>
             <Button className="sm:hidden" variant="default" size="icon">
               <Ticket />
@@ -157,9 +155,6 @@ const Navigation = ({
                 </Button>
               </SheetTrigger>
               <SheetContent className="overflow-y-auto bg-cactus/50 backdrop-blur-xl rounded-3xl text-white border-1 border-white/8 m-6 pt-32 pb-16 px-10 sm:px-20 md:px-40 w-[calc(100%-24px*2)] h-[calc(100%-24px*2)] sm:max-w-full">
-                {/* <SheetHeader>
-                  <SheetTitle />
-                </SheetHeader> */}
                 <div className="flex flex-col gap-6 justify-between h-full">
                   <Accordion
                     type="multiple"
@@ -169,7 +164,7 @@ const Navigation = ({
                   </Accordion>
                   <div className="flex flex-col gap-3 items-center">
                     <Button asChild size={"lg"}>
-                      <a href={actions.button.url}><Ticket />{actions.button.title}</a>
+                      <a href={actions.button.url}><Ticket size={24} />{actions.button.title}</a>
                     </Button>
                   </div>
                 </div>

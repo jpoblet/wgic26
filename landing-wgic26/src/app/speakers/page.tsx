@@ -10,6 +10,7 @@ const Speakers = () => {
                 buttonText="submit entry"
                 buttonUrl="#"
                 buttonIcon={<FileText size={18} />}
+                buttonVariant="yellow"
             />
             <section className="w-full justify-start text-xs">
                 This is the rest of the page

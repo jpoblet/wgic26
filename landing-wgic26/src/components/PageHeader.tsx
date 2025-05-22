@@ -10,6 +10,7 @@ interface PageHeaderProps {
     buttonText?: string
     buttonUrl?: string
     buttonIcon?: React.ReactNode
+    buttonVariant?: "blue" | "yellow" | "red" | "purple" | "inverse" | "secondary" | "default"
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({
@@ -19,6 +20,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
     buttonText,
     buttonUrl,
     buttonIcon,
+    buttonVariant = "yellow", // Default to "yellow" if none is provided
 }) => {
     const showButton = buttonText && buttonUrl
 
@@ -30,7 +32,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                         {section}/
                     </div>
                 )}
-                <div className="flex flex-col sm:flex-row gap-10 lg:gap-0 items-start justify-between w-full">
+                <div className="flex flex-col sm:flex-row gap-8 lg:gap-0 items-start justify-between w-full">
                     <div className="flex flex-col gap-5 w-full">
                         <div className="text-4xl lg:text-3xl uppercase text-white w-full">
                             {title}
@@ -43,8 +45,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                                 rel="noopener noreferrer"
                                 download
                             >
-                                <Button variant="blue">
-                                    {buttonIcon || <Download size={18} />} {buttonText}
+                                <Button variant={buttonVariant}>
+                                    {buttonIcon || <Download size={20} />} {buttonText}
                                 </Button>
                             </Link>
                         )}

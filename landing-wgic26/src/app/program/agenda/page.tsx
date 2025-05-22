@@ -11,6 +11,7 @@ const Agenda = () => {
                 buttonUrl="#"
                 buttonText="download pdf"
                 buttonIcon={<Download size={18} />}
+                buttonVariant="blue"
             />
             <section className="w-full justify-start text-xs">
                 This is the rest of the page

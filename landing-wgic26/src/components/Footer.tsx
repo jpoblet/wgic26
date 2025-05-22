@@ -35,9 +35,20 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row py-8 px-8 sm:px-6 sm:py-8 lg:py-6 text-white/60 bg-cactus lg:bg-monstera/60 justify-between gap-2 text-[10px]">
                 <div>WGIC 2026 - All rights reserved</div>
                 <div className="flex gap-2 items-end">
-                    Another<a href="http://jordipoblet.com" className="flex gap-1 items-center text-white underline underline-offset-4 decoration-1 decoration-potus lg:no-underline hover:underline hover:underline-offset-4 hover:decoration-1 hover:decoration-potus"><School size={14} />Paesetto</a>creation.
+                    Another
+                    <a
+                        href="http://jordipoblet.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex gap-1 items-center text-white underline underline-offset-4 decoration-1 decoration-potus lg:no-underline hover:underline hover:underline-offset-4 hover:decoration-1 hover:decoration-potus"
+                    >
+                        <School size={14} />
+                        Paesetto
+                    </a>
+                    creation.
                 </div>
             </div>
+
 
         </footer>
     );

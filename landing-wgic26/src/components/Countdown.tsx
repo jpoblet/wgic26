@@ -1,10 +1,16 @@
 "use client";
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const Countdown = () => {
-    const targetDate = useMemo(() => new Date("2026-10-27T00:00:00"), []);
+    const [timeLeft, setTimeLeft] = useState({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+    });
 
     const calculateTimeLeft = useCallback(() => {
+        const targetDate = new Date("2026-10-27T09:00:00");
         const now = new Date();
         const difference = targetDate.getTime() - now.getTime();
 
@@ -14,11 +20,11 @@ const Countdown = () => {
             minutes: Math.floor((difference / (1000 * 60)) % 60),
             seconds: Math.floor((difference / 1000) % 60),
         };
-    }, [targetDate]);
-
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    }, []);
 
     useEffect(() => {
+        setTimeLeft(calculateTimeLeft());
+
         const timer = setInterval(() => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
