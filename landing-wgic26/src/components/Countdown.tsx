@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 
 const Countdown = () => {
-    const targetDate = new Date("2026-10-27T00:00:00");
+    const targetDate = useMemo(() => new Date("2026-10-27T00:00:00"), []);
 
     const calculateTimeLeft = useCallback(() => {
         const now = new Date();
@@ -16,7 +16,7 @@ const Countdown = () => {
         };
     }, [targetDate]);
 
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
     useEffect(() => {
         const timer = setInterval(() => {
