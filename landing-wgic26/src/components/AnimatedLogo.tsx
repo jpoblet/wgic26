@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image2 from "next/image";
+import Image from "next/image";
 
 interface AnimatedLogoProps {
     scrolled: boolean;
     visible: boolean;
 }
 
-const AnimatedLogo = ({ scrolled, visible }: AnimatedLogoProps) => {
-    const logoFrames = [
-        "/img/logo/logo1.svg",
-        "/img/logo/logo2.svg",
-        "/img/logo/logo3.svg",
-        "/img/logo/logo4.svg",
-        "/img/logo/logo5.svg",
-    ];
+const logoFrames = [
+    "/img/logo/logo1.svg",
+    "/img/logo/logo2.svg",
+    "/img/logo/logo3.svg",
+    "/img/logo/logo4.svg",
+    "/img/logo/logo5.svg",
+];
 
+const AnimatedLogo = ({ scrolled, visible }: AnimatedLogoProps) => {
     const [currentFrame, setCurrentFrame] = useState(0);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -25,8 +25,7 @@ const AnimatedLogo = ({ scrolled, visible }: AnimatedLogoProps) => {
             const img = document.createElement("img");
             img.src = src;
         });
-    }, []);
-
+    }, []); // logoFrames is now stable and doesn't need to be included
 
     const startAnimation = () => {
         if (intervalRef.current) return;
@@ -55,13 +54,13 @@ const AnimatedLogo = ({ scrolled, visible }: AnimatedLogoProps) => {
             onMouseEnter={startAnimation}
             onMouseLeave={stopAnimation}
         >
-            <Image2
+            <Image
                 key={logoFrames[currentFrame]}
                 src={logoFrames[currentFrame]}
                 alt="WGIC26 Logo"
                 fill
-                className="absolute inset-0 w-full h-full object-contain" />
-
+                className="absolute inset-0 w-full h-full object-contain"
+            />
         </div>
     );
 };
