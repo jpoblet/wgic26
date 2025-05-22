@@ -1,8 +1,15 @@
+import PageHeader from "@/components/PageHeader";
+
 const Speakers = () => {
     return (
-        <div className="p-8">
-            <h1>Speakers</h1>
-            <p>This page will cover the main themes and subject matter of the congress.</p>
+        <div>
+            <PageHeader
+                title="Speakers"
+                description="Find here the top presenters and every other speaker that will take part of the event."
+            />
+            <section className="w-full justify-start text-xs">
+                This is the rest of the page
+            </section>
         </div>
     );
 };

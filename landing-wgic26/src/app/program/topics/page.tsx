@@ -1,8 +1,15 @@
+import PageHeader from "@/components/PageHeader";
+
 const Topics = () => {
     return (
-        <div className="p-8">
-            <h1>Topics</h1>
-            <p>This page will cover the main topics of the congress.</p>
+        <div>
+            <PageHeader
+                title="Topics"
+                description="Find here the main topics that the congress will focus on."
+            />
+            <section className="w-full justify-start text-xs">
+                This is the rest of the page
+            </section>
         </div>
     );
 };

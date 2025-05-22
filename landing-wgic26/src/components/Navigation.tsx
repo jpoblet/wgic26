@@ -156,7 +156,7 @@ const Navigation = ({
                   <Menu />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto bg-cactus/50 backdrop-blur-xl rounded-3xl text-white border-none m-6 pt-32 pb-16 px-10 sm:px-20 md:px-40 w-[calc(100%-24px*2)] h-[calc(100%-24px*2)] sm:max-w-full">
+              <SheetContent className="overflow-y-auto bg-cactus/50 backdrop-blur-xl rounded-3xl text-white border-1 border-white/8 m-6 pt-32 pb-16 px-10 sm:px-20 md:px-40 w-[calc(100%-24px*2)] h-[calc(100%-24px*2)] sm:max-w-full">
                 {/* <SheetHeader>
                   <SheetTitle />
                 </SheetHeader> */}

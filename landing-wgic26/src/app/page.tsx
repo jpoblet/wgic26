@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="mt-32 ">
+    <div>
       <section className="lg:pt-24">
         <div className="uppercase text-3xl xs:text-4xl pr-8 sm:text-5xl w-full md:text-6xl lg:text-5xl lg:w-3/5 xl:text-6xl leading-tight tracking-tight">
           World <strong>Green</strong> Infrastructure Congress 2026 <strong>Barcelona</strong>
@@ -66,6 +66,6 @@ export default function Home() {
             className="max-h-24" />
         </div>
       </section>
-    </main>
+    </div>
   );
 }
