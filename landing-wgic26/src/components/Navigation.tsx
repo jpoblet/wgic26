@@ -26,7 +26,7 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetTitle,
+  // SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
@@ -156,15 +156,14 @@ const Navigation = ({
                   <Menu />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto bg-cement text-mortar border-none w-full sm:max-w-full">
-                <SheetHeader>
+              <SheetContent className="overflow-y-auto bg-cactus/50 backdrop-blur-xl rounded-3xl text-white border-none m-6 pt-32 pb-16 px-10 sm:px-20 md:px-40 w-[calc(100%-24px*2)] h-[calc(100%-24px*2)] sm:max-w-full">
+                {/* <SheetHeader>
                   <SheetTitle />
-                </SheetHeader>
-                <div className="flex flex-col gap-6 p-4">
+                </SheetHeader> */}
+                <div className="flex flex-col gap-6 justify-between h-full">
                   <Accordion
-                    type="single"
-                    collapsible
-                    className="flex w-full flex-col gap-4"
+                    type="multiple"
+                    className="flex w-full flex-col gap-12 text-regular"
                   >
                     {menu.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
@@ -213,10 +212,10 @@ const renderMobileMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
+        <AccordionTrigger className="text-md py-0 font-light uppercase hover:no-underline">
           {item.title}
         </AccordionTrigger>
-        <AccordionContent className="mt-2">
+        <AccordionContent className="flex flex-col my-6 gap-6">
           {item.items.map((subItem) => (
             <SubMenuLink key={subItem.title} item={subItem} />
           ))}
@@ -226,7 +225,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
+    <a className="text-2xl font-light uppercase" key={item.title} href={item.url}>
       {item.title}
     </a>
   );
@@ -235,11 +234,11 @@ const renderMobileMenuItem = (item: MenuItem) => {
 const SubMenuLink = ({ item }: { item: MenuItem }) => {
   return (
     <a
-      className="flex flex-row gap-4 justify-start rounded-none leading-none transition-none outline-none select-none normal-case hover:underline hover:underline-offset-8 hover:decoration-2 hover:decoration-potus"
+      className="flex flex-row gap-4 justify-start rounded-none leading-none transition-none outline-none select-none normal-case lg:hover:underline lg:hover:underline-offset-8 lg:hover:decoration-2 lg:hover:decoration-potus"
       href={item.url}
     >
-      <div className="flex gap-2 py-2">
-        <div className="text-xs p-0">{item.title}</div>
+      <div className="flex gap-2 lg:gap-2 py-2">
+        <div className="text-lg lg:text-xs lg:pl-0 pl-8">{item.title}</div>
       </div>
     </a>
   );
